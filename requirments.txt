@@ -1,0 +1,65 @@
+1)``Vanilla Networks Pvt Ltd.``
+
+* Python
+* Frameworks - Django,flask
+* JS Frameworks - AngularJS, ReactJS, jQuery, NodeJS etc
+
+2)'3BIGS OMICSCORE PVT LTD'
+*django,PostregSQl,python,AWS
+
+3)'KoiReader Technologies'
+
+*IT Skills-Python,BigData,AWS,Ubuntu,DataStructures, Python 
+
+4)'BRIDGELABZ SOLUTIONS PRIVATE LIMITED'
+*Javascript,AnalyticalCommunication,Python,Framework--SQLLinux ITskill- Python
+
+5)''Softcell Technologies Global Private Ltd''
+*Front EndWeb Technologies-MySQLMongoDB,Postgres,Web Development HP Data Protector, Python
+
+
+6)''GoodWorkLabs''
+Python and Flask framework. Django framework
+
+7)''Virtuous Transactional Analytics Pvt. Ltd.''
+Opencv Pandas Extraction Django SQL Flask Kubernetes
+
+8)'Atria Convergence Technologies Pvt Ltd
+RestGITUnit TestingWeb TechnologiesUser Stories
+
+9)'Spanidea Systems Pvt'
+Computer scienceElectrical engineeringSANFront endFrench
+
+10)BootLabs
+REST APISystem DesignSOARDBMSHTML5
+
+
+tester;;;;;;;;;;;
+Python Automation Test Engineer
+1) Stag Software Pvt. Ltd
+Test EngineeringDatabase TestingAutomation TestingAPISelenium
+
+2) accenture
+python,Cloud DevOps Jenkins automation ticketing
+
+3)ThinkPalm Technologies (P) Ltd
+Test Engineering Networking ProtocolsAutomation TestingStorage Area NetworkRest Api
+4)Encora Innovation labs pvt
+agile msSQLServer scrum selenium java python RestAssured protractor
+5)C P CAREERS PRIVATE LIMITED
+Unix Cd LinuxDockerCI 
+
+6)UPAYA AI
+Storage DASAutomation Testing
+
+7)TeamPlus Staffing Solution Pvt Ltd
+JenkinsAutomation testing LinuxDebugging Javascript
+
+8) Chegg 
+Regression TestingAPI TestingTest PlanningSoftware TestingJavascript
+
+9)Notus Services private limited
+SS7 MAP SIP troubleshooting Python DIAMETER CAP 
+
+10)Sophos Technologies 
+Azure UI testing Jenkins REST python Microservice SDETAutomation TestingRest ApiMicroservices 
