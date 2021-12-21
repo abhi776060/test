@@ -5,7 +5,7 @@ class List():
 
     def sort(self,lis):
         dict2={}
-        for x,y in sorted(lis.items()):
+        for x,y in lis.items():
             dict3={}
             for i,j in sorted(y.items()):
                 dict3[i]=j
