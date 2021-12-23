@@ -1,0 +1,25 @@
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 ERROR-3 dividing numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 ERROR-3 dividing numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 ERROR-3 dividing numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 ERROR-3 dividing numbers
+21-12-23  12:02:48 WARNING-adding even numbers
+21-12-23  12:02:48 CRITICAL-remainig numbers
+21-12-23  12:02:48 WARNING-adding even numbers
