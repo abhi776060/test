@@ -1,0 +1,3 @@
+INFO:root:abhishek is 26 years old boy
+INFO:root:vishnu is 25 years old boy
+INFO:root:function calling by its refernece :abhishek
