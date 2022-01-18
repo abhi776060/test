@@ -16,6 +16,7 @@ class LinkedList:
 		while temp:
 			print (temp.data)
 			temp = temp.next
+		
 
 
 
