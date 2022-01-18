@@ -7,7 +7,7 @@ class Function:
         if num<=0:
             return 0
         elif num==1:
-            return 1
+            return 1 #returning one if entered value is equal to one
         else:
             n=2
             for x in range(2,num):
