@@ -1,12 +1,24 @@
 from django.shortcuts import render
-
+t=''
 # Create your views here.
 def view(request):
     result=''
-    value=[]
+    value=''
+    global t
     if request.method == 'POST':
-        a=request.POST.get('ab')
+        value1=request.POST.get('v1')
+        if value1=='q':
+            a=value
+        else:
+            
+            t.append(value1)
+        for o in t:
+            value+=o
         
+       
+        
+        
+        print(a)  
         try:
             if "+" in a:
                 str1=a.split("+")
@@ -97,8 +109,9 @@ def view(request):
                 result="Error"
         except:
             result='Error'
+    
             
-    return render(request,'basiccal/calculator.html',{'data':result})
+    return render(request,'basiccal/calculator.html',{'data':result,'o':value})
 
 def verify(str1):
     index=str1.split(".")
