@@ -7,6 +7,7 @@ def view(request):
     global t
     if request.method == 'POST':
         value1=request.POST.get('v1')
+        a=''
         if value1=='q':
             a=value
         else:
