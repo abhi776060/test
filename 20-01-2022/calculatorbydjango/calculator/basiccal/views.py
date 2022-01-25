@@ -6,20 +6,15 @@ def view(request):
     value=''
     global t
     if request.method == 'POST':
+        i='q'
+        while True:
         value1=request.POST.get('v1')
-        a=''
-        if value1=='q':
-            a=value
-        else:
-            
-            t.append(value1)
-        for o in t:
-            value+=o
+        a=value1
         
        
         
         
-        print(a)  
+        
         try:
             if "+" in a:
                 str1=a.split("+")
