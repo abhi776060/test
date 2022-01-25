@@ -1,0 +1,34 @@
+'''Example 1:
+
+Input: nums = [2,3,1,1,4]
+Output: 2
+Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+Example 2:
+
+Input: nums = [2,3,0,1,4]
+Output: 2
+
+'''
+
+def minJumps(arr, l, h):
+
+	if (h == l):
+		return 0
+
+	if (arr[l] == 0):
+		return float('inf')
+
+	min = float('inf')
+	for i in range(l + 1, h + 1):
+		if (i < l + arr[l] + 1):
+			jumps = minJumps(arr, i, h)
+			if (jumps != float('inf') and
+					jumps + 1 < min):
+				min = jumps + 1
+
+	return min
+
+arr = [2,3,1,1,4]
+n = len(arr)
+print('Minimum number of jumps to reach',
+	'end is', minJumps(arr, 0, n-1))
