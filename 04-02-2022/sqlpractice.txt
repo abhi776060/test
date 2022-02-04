@@ -1,0 +1,408 @@
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 39
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE database vhsk
+    -> ;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| number             |
+| performance_schema |
+| practice           |
+| sakila             |
+| sys                |
+| vhsk               |
+| world              |
++--------------------+
+9 rows in set (0.02 sec)
+
+mysql> USE vhsk;
+Database changed
+mysql> CREATE TABLE sslc(name VARCHAR(25), );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> CREATE TABLE sslc(name VARCHAR(25),
+    -> age INT,
+    -> sex VARCHAR,
+    -> class VARCHAR,
+    -> fathername VARCHAR,
+    -> mothername VARCHAR(25);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+class VARCHAR,
+fathername VARCHAR,
+mothername VARCHAR(25)' at line 3
+mysql> CREATE TABLE SSLC(name VARCHAR(25),
+    -> age INT,
+    -> sex VARCHAR(6),
+    -> class VARCHAR(1),
+    -> fathername VARCHAR(25),
+    -> mothername VARCHAR(25),
+    -> villege VARCHAR(25);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7
+mysql> CREATE TABLE SSLC(name VARCHAR(25),
+    -> age INT,
+    -> sex VARCHAR(6),
+    -> class VARCHAR(1),
+    -> fathername VARCHAR(25),
+    -> mothername VARCHAR(25),
+    -> villegename VARCHAR(25));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> DESC sslc;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| name        | varchar(25) | YES  |     | NULL    |       |
+| age         | int         | YES  |     | NULL    |       |
+| sex         | varchar(6)  | YES  |     | NULL    |       |
+| class       | varchar(1)  | YES  |     | NULL    |       |
+| fathername  | varchar(25) | YES  |     | NULL    |       |
+| mothername  | varchar(25) | YES  |     | NULL    |       |
+| villegename | varchar(25) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> ALTER TABLE sslc ADD student_roll_num INT;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC sslc;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| name             | varchar(25) | YES  |     | NULL    |       |
+| age              | int         | YES  |     | NULL    |       |
+| sex              | varchar(6)  | YES  |     | NULL    |       |
+| class            | varchar(1)  | YES  |     | NULL    |       |
+| fathername       | varchar(25) | YES  |     | NULL    |       |
+| mothername       | varchar(25) | YES  |     | NULL    |       |
+| villegename      | varchar(25) | YES  |     | NULL    |       |
+| student_roll_num | int         | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> ALTER TABLE sslc DROP student_roll_num;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC sslc;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| name        | varchar(25) | YES  |     | NULL    |       |
+| age         | int         | YES  |     | NULL    |       |
+| sex         | varchar(6)  | YES  |     | NULL    |       |
+| class       | varchar(1)  | YES  |     | NULL    |       |
+| fathername  | varchar(25) | YES  |     | NULL    |       |
+| mothername  | varchar(25) | YES  |     | NULL    |       |
+| villegename | varchar(25) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> ALTER TABLE sslc ADD student_roll_num INT PRIMARY KEY AUTO INCREAMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO INCREAMENT' at line 1
+mysql> ALTER TABLE sslc ADD student_roll_num INT PRIMARY KEY AUTO INCREMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO INCREMENT' at line 1
+mysql> ALTER TABLE sslc ADD student_roll_num INT PRIMARY KEY;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC sslc;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| name             | varchar(25) | YES  |     | NULL    |       |
+| age              | int         | YES  |     | NULL    |       |
+| sex              | varchar(6)  | YES  |     | NULL    |       |
+| class            | varchar(1)  | YES  |     | NULL    |       |
+| fathername       | varchar(25) | YES  |     | NULL    |       |
+| mothername       | varchar(25) | YES  |     | NULL    |       |
+| villegename      | varchar(25) | YES  |     | NULL    |       |
+| student_roll_num | int         | NO   | PRI | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.02 sec)
+
+mysql> ALTER TABLE sslc MODIFY COLUMN student_roll_num TO AUTOINCREMENT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TO AUTOINCREMENT' at line 1
+mysql> INSERT INTO sslc VALUES('abhishek k s',26,'male','A','shivakumar k s','padhama h m','kyathanahalli',2022001);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SSELECT * FROM sslc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SSELECT * FROM sslc' at line 1
+mysql> SELECT * FROM SSLC;
++--------------+------+------+-------+----------------+-------------+---------------+------------------+
+| name         | age  | sex  | class | fathername     | mothername  | villegename   | student_roll_num |
++--------------+------+------+-------+----------------+-------------+---------------+------------------+
+| abhishek k s |   26 | male | A     | shivakumar k s | padhama h m | kyathanahalli |          2022001 |
++--------------+------+------+-------+----------------+-------------+---------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO sslc VALUES('pavan k m',25,'male','A','mohankumar','latha','kyathanahalli',2022002);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO sslc VALUES('vishnu priya j',25,'male','A','jayaraj','roopa','ukkada',2022003);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO sslc VALUES('kavya c s',24,'female','B','veerappa','parimala','koppal',2022004);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO sslc VALUES('rohini',24,'female','C','veeresh','parimala','srirangapattana',2022005);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT name FROM sscl;
+ERROR 1146 (42S02): Table 'vhsk.sscl' doesn't exist
+mysql> SELECT name FROM sslc;
++----------------+
+| name           |
++----------------+
+| abhishek k s   |
+| pavan k m      |
+| vishnu priya j |
+| kavya c s      |
+| rohini         |
++----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT age FROM sslc;
++------+
+| age  |
++------+
+|   26 |
+|   25 |
+|   25 |
+|   24 |
+|   24 |
++------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT sex FROM sslc;
++--------+
+| sex    |
++--------+
+| male   |
+| male   |
+| male   |
+| female |
+| female |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT class FROM sslc;
++-------+
+| class |
++-------+
+| A     |
+| A     |
+| A     |
+| B     |
+| C     |
++-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT fathername,mothername,villegename,student_roll_num FROM sslc;
++----------------+-------------+-----------------+------------------+
+| fathername     | mothername  | villegename     | student_roll_num |
++----------------+-------------+-----------------+------------------+
+| shivakumar k s | padhama h m | kyathanahalli   |          2022001 |
+| mohankumar     | latha       | kyathanahalli   |          2022002 |
+| jayaraj        | roopa       | ukkada          |          2022003 |
+| veerappa       | parimala    | koppal          |          2022004 |
+| veeresh        | parimala    | srirangapattana |          2022005 |
++----------------+-------------+-----------------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE sslc ADD COMMENT='student extra content';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='student extra content'' at line 1
+mysql> ALTER TABLE sslc ADD COMMENT="student extra content";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '="student extra content"' at line 1
+mysql> ALTER TABLE sslc ADD COMMENT="student extra content" VARCHAR(1000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '="student extra content" VARCHAR(1000)' at line 1
+mysql> ALTER TABLE sslc COMMENT="student extra content";
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC sslc;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| name             | varchar(25) | YES  |     | NULL    |       |
+| age              | int         | YES  |     | NULL    |       |
+| sex              | varchar(6)  | YES  |     | NULL    |       |
+| class            | varchar(1)  | YES  |     | NULL    |       |
+| fathername       | varchar(25) | YES  |     | NULL    |       |
+| mothername       | varchar(25) | YES  |     | NULL    |       |
+| villegename      | varchar(25) | YES  |     | NULL    |       |
+| student_roll_num | int         | NO   | PRI | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> SELECT * FORM sscl;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FORM sscl' at line 1
+mysql> SELECT * FORM sslc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FORM sslc' at line 1
+mysql> SELECT * FROM sslc;
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+
+| name           | age  | sex    | class | fathername     | mothername  | villegename     | student_roll_num |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+
+| abhishek k s   |   26 | male   | A     | shivakumar k s | padhama h m | kyathanahalli   |          2022001 |
+| pavan k m      |   25 | male   | A     | mohankumar     | latha       | kyathanahalli   |          2022002 |
+| vishnu priya j |   25 | male   | A     | jayaraj        | roopa       | ukkada          |          2022003 |
+| kavya c s      |   24 | female | B     | veerappa       | parimala    | koppal          |          2022004 |
+| rohini         |   24 | female | C     | veeresh        | parimala    | srirangapattana |          2022005 |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+
+5 rows in set (0.01 sec)
+
+mysql> ALTER TABLE sslc COMMENT="student extra content";
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC sslc;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| name             | varchar(25) | YES  |     | NULL    |       |
+| age              | int         | YES  |     | NULL    |       |
+| sex              | varchar(6)  | YES  |     | NULL    |       |
+| class            | varchar(1)  | YES  |     | NULL    |       |
+| fathername       | varchar(25) | YES  |     | NULL    |       |
+| mothername       | varchar(25) | YES  |     | NULL    |       |
+| villegename      | varchar(25) | YES  |     | NULL    |       |
+| student_roll_num | int         | NO   | PRI | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> ALTER TABLE sslc ADD COMMENT="student extra content";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '="student extra content"' at line 1
+mysql> ALTER TABLE sslc ADD COLUMN COMMENT="student extra content";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '="student extra content"' at line 1
+mysql> ALTER TABLE sslc ADD COMMENT="student extra content";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '="student extra content"' at line 1
+mysql> ALTER TABLE sslc COMMENT="student extra content";
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SHOW ALL TABLE sslc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ALL TABLE sslc' at line 1
+mysql> SELECT * FROM sslc;
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+
+| name           | age  | sex    | class | fathername     | mothername  | villegename     | student_roll_num |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+
+| abhishek k s   |   26 | male   | A     | shivakumar k s | padhama h m | kyathanahalli   |          2022001 |
+| pavan k m      |   25 | male   | A     | mohankumar     | latha       | kyathanahalli   |          2022002 |
+| vishnu priya j |   25 | male   | A     | jayaraj        | roopa       | ukkada          |          2022003 |
+| kavya c s      |   24 | female | B     | veerappa       | parimala    | koppal          |          2022004 |
+| rohini         |   24 | female | C     | veeresh        | parimala    | srirangapattana |          2022005 |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+
+5 rows in set (0.01 sec)
+
+mysql> ALTER TABLE sslc ADD COLUMN VARCHAR(1000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR(1000)' at line 1
+mysql> ALTER TABLE sslc ADD COMMIT VARCHAR(1000);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM sslc;
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+--------+
+| name           | age  | sex    | class | fathername     | mothername  | villegename     | student_roll_num | COMMIT |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+--------+
+| abhishek k s   |   26 | male   | A     | shivakumar k s | padhama h m | kyathanahalli   |          2022001 | NULL   |
+| pavan k m      |   25 | male   | A     | mohankumar     | latha       | kyathanahalli   |          2022002 | NULL   |
+| vishnu priya j |   25 | male   | A     | jayaraj        | roopa       | ukkada          |          2022003 | NULL   |
+| kavya c s      |   24 | female | B     | veerappa       | parimala    | koppal          |          2022004 | NULL   |
+| rohini         |   24 | female | C     | veeresh        | parimala    | srirangapattana |          2022005 | NULL   |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+--------+
+5 rows in set (0.01 sec)
+
+mysql> ALTER TABLE sslc RENAME commit TO comments;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TO comments' at line 1
+mysql> ALTER TABLE sslc RENAME COLUMN commit TO comments;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM sslc;
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+----------+
+| name           | age  | sex    | class | fathername     | mothername  | villegename     | student_roll_num | comments |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+----------+
+| abhishek k s   |   26 | male   | A     | shivakumar k s | padhama h m | kyathanahalli   |          2022001 | NULL     |
+| pavan k m      |   25 | male   | A     | mohankumar     | latha       | kyathanahalli   |          2022002 | NULL     |
+| vishnu priya j |   25 | male   | A     | jayaraj        | roopa       | ukkada          |          2022003 | NULL     |
+| kavya c s      |   24 | female | B     | veerappa       | parimala    | koppal          |          2022004 | NULL     |
+| rohini         |   24 | female | C     | veeresh        | parimala    | srirangapattana |          2022005 | NULL     |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+----------+
+5 rows in set (0.01 sec)
+
+mysql> UPDATE sslc SET comments='he is good student and 3rs rank student' WHERE name='abhishek k s';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM sslc;
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+-----------------------------------------+
+| name           | age  | sex    | class | fathername     | mothername  | villegename     | student_roll_num | comments                                |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+-----------------------------------------+
+| abhishek k s   |   26 | male   | A     | shivakumar k s | padhama h m | kyathanahalli   |          2022001 | he is good student and 3rs rank student |
+| pavan k m      |   25 | male   | A     | mohankumar     | latha       | kyathanahalli   |          2022002 | NULL                                    |
+| vishnu priya j |   25 | male   | A     | jayaraj        | roopa       | ukkada          |          2022003 | NULL                                    |
+| kavya c s      |   24 | female | B     | veerappa       | parimala    | koppal          |          2022004 | NULL                                    |
+| rohini         |   24 | female | C     | veeresh        | parimala    | srirangapattana |          2022005 | NULL                                    |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+-----------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE sslc SET comments='she is good student and 1st rank student' WHERE name='rohini';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE sslc SET comments='she is good student and average student' WHERE name='vishnu priya j';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE sslc SET comments='he is good student and average student' WHERE name='vishnu priya j';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE sslc SET comments='she is good student and average student' WHERE name='kavya c s';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE sslc SET comments='he is good student and average student but well in maths' WHERE name='pavan k m';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM sslc;
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+----------------------------------------------------------+
+| name           | age  | sex    | class | fathername     | mothername  | villegename     | student_roll_num | comments                                                 |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+----------------------------------------------------------+
+| abhishek k s   |   26 | male   | A     | shivakumar k s | padhama h m | kyathanahalli   |          2022001 | he is good student and 3rs rank student                  |
+| pavan k m      |   25 | male   | A     | mohankumar     | latha       | kyathanahalli   |          2022002 | he is good student and average student but well in maths |
+| vishnu priya j |   25 | male   | A     | jayaraj        | roopa       | ukkada          |          2022003 | he is good student and average student                   |
+| kavya c s      |   24 | female | B     | veerappa       | parimala    | koppal          |          2022004 | she is good student and average student                  |
+| rohini         |   24 | female | C     | veeresh        | parimala    | srirangapattana |          2022005 | she is good student and 1st rank student                 |
++----------------+------+--------+-------+----------------+-------------+-----------------+------------------+----------------------------------------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM sslc WHERE name='abhi' and name='vishnu priya j';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM sslc WHERE name='abhi';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM sslc WHERE name='vishnu priya j';
++----------------+------+------+-------+------------+------------+-------------+------------------+----------------------------------------+
+| name           | age  | sex  | class | fathername | mothername | villegename | student_roll_num | comments                               |
++----------------+------+------+-------+------------+------------+-------------+------------------+----------------------------------------+
+| vishnu priya j |   25 | male | A     | jayaraj    | roopa      | ukkada      |          2022003 | he is good student and average student |
++----------------+------+------+-------+------------+------------+-------------+------------------+----------------------------------------+
+1 row in set (0.00 sec)
