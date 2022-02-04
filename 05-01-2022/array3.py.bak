@@ -1,6 +1,6 @@
 #Reverse the order of the items in the array.
 from array import array
-class array:
+class Array:
     def __init__(self):
         pass
 
@@ -10,5 +10,5 @@ class array:
             array2.append(x)
         print(array2)
 
-solution=array()
+solution=Array()
 solution.reverse(array('i',[1,2,3,4,5]))

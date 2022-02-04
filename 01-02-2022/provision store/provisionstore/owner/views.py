@@ -1,12 +1,18 @@
-from cgi import test
-from django.shortcuts import render,HttpResponse
+
+from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 from .models import Credential,Items
 
+
+
 # Create your views here.
+def login(arg):
+    return arg
+
+
 
 def display(request):
-    return HttpResponse("welcome to sachin provisionstore")
+    return render(request,"display.html")
 
 def signup(request):
     if request.method =='POST':
@@ -21,6 +27,7 @@ def signup(request):
                 if user:
                     new_user=Credential(first_name=fname,last_name=lname,email=email,password=pass1)
                     new_user.save()
+                    return redirect('signin')
             except:
                 messages.error(request,'user already there :')
         else:
@@ -32,13 +39,53 @@ def signup(request):
 def signin(request):
     if request.method=='POST':
         email=request.POST['email']
+        password=request.POST['pass1']
+        new_user=Credential.objects.filter(email=email,password=password).all()
+        if new_user:
+            context={'data':login(email)}
+            return render(request,'home.html',context)
+        else:
+            messages.error(request,' No such users')
 
 
     return render(request,'signin.html')
-
 def signout(request):
-    pass
+    return redirect('signin')
+    
+    
+    
 
 def home(request):
-    return render(request,'home.html')
+    if request.method== 'POST':
+        val=request.POST['value']
+        if val == 'add':
+            name=request.POST['name']
+            price=float(request.POST['price'])
+            quantity=float(request.POST['quantity'])
+            item=Items(name=name,price=price,quantity=quantity)
+            item.save()
+            return redirect('home')
+
+        if val == 'edit':
+            name=request.POST['name']
+            price=float(request.POST['price'])
+            quantity=float(request.POST['quantity'])
+            item=Items(name=name,price=price,quantity=quantity)
+            item.save()
+            return redirect('home')
+
+        if val == 'delete':
+            name=request.POST['name']
+            price=float(request.POST['price'])
+            quantity=float(request.POST['quantity'])
+            item=Items(name=name,price=price,quantity=quantity)
+            item.save()
+            return redirect('home')
+
+       
+
+    else:
+        item=Items.objects.all()
+        context={'data':item}
+        return render(request,'home.html',context=context)
 

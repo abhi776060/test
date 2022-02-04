@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def home(request):
     return render(request,'authentication/index.html')
-
+ 
 def signup(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -33,7 +33,8 @@ def signin(request):
         pass1=request.POST['pass1']
 
         user= authenticate(username=username,password=pass1)
-        if user is not None:
+        print(user)
+        if user:
             login(request,user)
             fname=user.first_name
             return render(request,'authentication/index.html',{'fname':fname})

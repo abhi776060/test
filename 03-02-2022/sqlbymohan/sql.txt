@@ -1,0 +1,174 @@
+-- CREATE DATABASE practice;
+ USE practice;
+CREATE TABLE test10 ( name VARCHAR(20),age INT(10), number INT(10));
+DESC test1;
+
+ALTER TABLE test RENAME TO test1 ;
+ALTER TABLE test1 ADD password INT(10);
+ALTER TABLE test1  RENAME COLUMN password TO password1;
+ALTER TABLE test1  DROP password1;
+ALTER TABLE test1 MODIFY COLUMN number VARCHAR(20);
+
+
+-- DROP table
+DROP TABLE test10;
+-- DROP COLUMN 
+ALTER TABLE test1 DROP COLUMN number;
+-- PROD VIEW
+DROP VIEW name;
+
+-- RENAME
+-- RENAME TABLE
+RENAME TABLE test1 TO test2;
+-- RENAME VIEW
+-- RENAME COLUMN 
+ALTER TABLE test1 RENAME COLUMN name TO names;
+
+-- TRUNCATE (DROP CREATE)
+-- TRUNCATE TABLE 
+TRUNCATE TABLE test1;
+
+-- COMMENT
+-- create table with comment 
+CREATE TABLE test10 ( name VARCHAR(20),age INT(10), number INT(10)) COMMENT=' description ';
+-- add comment to created table
+ALTER TABLE test10  COMMENT=' description';
+-- view comments
+SHOW FULL COLUMNS FROM test10;
+SHOW TABLE STATUS WHERE NAME=tablename;
+
+DESC test10;
+
+
+-- SELECT
+-- 1.select all from table 
+SELECT * FROM test1;
+-- 2. select specific column from the table 
+SELECT name,age FROM test1;
+-- 3.select using where clause
+SELECT * FROM test1 WHERE name='abhi';
+-- 4select using distinct 
+SELECT DISTINCT name FROM test1;
+-- 5. select using and you can use more
+SELECT * FROM test1 WHERE name='abhi' AND age=26;
+-- 6. select using OR
+SELECT * FROM test1 WHERE name='abhi' OR age=10;
+-- 7. select using in
+SELECT * FROM test1 WHERE name IN ('abhi');
+-- 8. select using not insert
+SELECT * FROM test1 WHERE name NOT IN ('abhi');
+-- 9. select using between and not between
+SELECT * FROM test1  WHERE age BETWEEN  26 and 27;
+-- 10. select using like 
+SELECT * FROM test1 WHERE name LIKE 'a%';
+-- 11. select using limit
+SELECT * FROM test1  age LIMIT 2,3;
+-- 12. select using null
+SELECT * FROM test1 WHERE name IS NULL;
+-- 13. select using not null
+SELECT * FROM test1 WHERE age IS NOT NULL;
+-- 14. selct using orderby
+SELECT * FROM test1 WHERE name='abhi' ORDER BY name;
+-- 15. select usimg group by 
+SELECT * FROM test1 WHERE name='abhi' GROUP BY name;
+-- 16. select using having
+SELECT * FROM test1 WHERE name='abhi' GROUP BY name HAVING age=26;
+-- 17. select using rollup
+SELECT name FROM test1 GROUP BY age WITH ROLLUP; 
+-- 18. select as 
+SELECT name AS actualname FROM test1;
+
+
+
+
+-- insert
+-- 1 insert into all column 
+INSERT INTO test1 (name,age) VALUES ('abhi',26);
+INSERT INTO test1  VALUES ('pavan',25);
+-- 2 insert into specific column 
+INSERT INTO test1 (name) VALUES ('pavan');
+
+-- 3 insert into multiple column
+ INSERT INTO test1 (name,age) VALUES ('pavan',20),('madhu',35);
+
+-- 4 insert into using import table from
+
+-- 5 insert ignore
+INSERT IGNORE INTO test1(name,age)  VALUES ('vishnu',25),('dfr',110);
+
+-- 6 insert into select new to old 
+
+INSERT INTO test2 TABLE test1;
+
+-- update
+
+-- update single column
+SET SQL_SAFE_UPDATES=0;
+UPDATE test2 SET name = 'replaced' WHERE age=26 ;
+select * from test2;
+
+-- update multi column 
+
+UPDATE test1 SET name ="replace" WHERE age=26 and password=12345;
+
+
+
+-- delete
+
+-- delete a row 
+DELETE FROM test1 WHERE age=26 ;
+-- delete multiple row 
+DELETE FROM test1 WHERE age=26 and name='abhi' ;
+
+
+
+
+
+
+
+
+select * from test1;
+
+
+USE practice;
+CREATE TABLE dummy(
+emp_id INT NOT NULL,
+name VARCHAR(45) NOT NULL,
+phone_no VARCHAR(45) NOT NULL,
+technology VARCHAR(45) NOT NULL,
+salary VARCHAR(45) NOT NULL,
+start_date VARCHAR(45) NOT NULL,
+comments VARCHAR(45) NOT NULL,
+PRIMARY KEY (emp_id))
+COMMENT='this table contains all the employee details';
+
+ALTER TABLE dummy RENAME TO employee;
+
+DESC employee;
+SELECT * FROM employee;
+
+START TRANSACTION;
+
+INSERT INTO employee VALUES 
+('001','aaaa','2345623452','java','20000','2022-01-01','none'),
+('002','ssss','7436654656','python','21000','2022-01-04','none'),
+('003','dddd','8584567766','database','18000','2022-01-06','none'),
+('004','ffff','4524354556','testing','15000','2022-01-03','none');
+
+
+INSERT INTO employee VALUES 
+('005','eeee','2345745772','java','20000','2022-01-08','none'),
+('006','ffff','4563674678','java','30000','2022-01-08','none');
+
+SAVEPOINT sp2;
+
+DELETE e FROM employee as e WHERE e.technology ='java' and e.salary=
+(SELECT * FROM (SELECT MAX(salary) FROM employee WHERE technology ='java'
+ ORDER BY salary DESC) x);
+ 
+ DELETE e FROM employee as e WHERE e.salary in (SELECT * FROM (SELECT salary FROM employee WHERE
+ salary > '20000') x);
+ 
+ TRUNCATE TABLE employee;
+
+ROLLBACK TO sp2;
