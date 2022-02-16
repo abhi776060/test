@@ -1,15 +1,19 @@
 
 
+from multiprocessing import context
 from django.shortcuts import redirect, render,HttpResponse
-from formapp.models import Student
+
+from formapp.models import Student,Item
 from django.contrib import messages
 from formapp.form import SignInInputs,SignUpInputs
+from django.contrib.sessions.models import Session
 
 
 
 # Create your views here.
 class SignIn:
     def signin(request):
+        
         temp={}
         temp['form']=SignInInputs()
         if request.method=='POST':
@@ -18,10 +22,7 @@ class SignIn:
             user=Student.objects.filter(email=email,password1=password1).first()
             if user :
                 request.session['name']=user.email
-                first=user.first_name
-                second=user.second_name
-                context={'first':first,'second':second}
-                return render(request,'home.html',context)
+                return redirect('home')
                
             else:
 
@@ -55,8 +56,28 @@ class SignUp:
         return render(request,'signup.html',temp)
 class Home:
     def home(request):
-        return render(request,'home.html')
+        context={}
+        context['name']=request.session.get('name')
+        product=Item.objects.all()
+        context['product']=product
 
+        if request.method=="POST":
+            na=request.POST.get('a',None)
+            request.session['name']=''
+            context['name']=request.session.get('name')
+            return redirect('signin')
+        else:
+            return render(request,'home.html',context)
+
+    
+def item(request,id:int):
+    
+    context={}
+    name=request.session.get('name')
+    context['name']=name
+    product=Item.objects.filter(item_id=id).first()
+    context['product']=product
+    return render(request,'item.html',context)
 
 
     
