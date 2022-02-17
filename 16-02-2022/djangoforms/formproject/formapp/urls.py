@@ -7,5 +7,6 @@ urlpatterns = [
     path('home',views.Home.home,name='home'),  
     path('<int:id>',views.item,name='item'),  
     path('update',views.update,name='update'),  
-      
+    path('add',views.add,name='add'),  
+    
 ]

@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./djangoforms/formproject/src/django-debug-toolbar"
+    ]
+}

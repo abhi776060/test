@@ -96,36 +96,41 @@ def update(request):
             input_data=request.POST['find']
             
             if input_data == 'Submit':
-
                 id=request.POST.get('id')
                 item=Item.objects.filter(item_id=int(id)).first()
-                context['item']=item
-                context['id']=id
+                try:
+                    item.item_id
+                    context['item']=item
+                    context['id']=id
+                except:
+                    messages.success(request,f"id {id} not found")
+                    return redirect('update')
 
             if input_data =='update':
-             
-                id=request.POST.get('id')
-                name1= request.POST.get('name')
-                price1= request.POST.get('price')
-                img1= request.POST.get('img')
-                discription1= request.POST.get('discription')
-                item1=Item.objects.filter(item_id=id).first()
-                item1.id=int(id)
-                item1.name=name1
-                item1.price=price1
-                item1.img=img1
-                item1.discription=discription1
-                item1.save()
-                
-            
-                
-                
+                try:
+                    id=request.POST.get('id')
+                    item1=Item.objects.filter(item_id=id).first()
+    
+    
+                    name1= request.POST.get('name')
+                    price1= request.POST.get('price')
+                    img1= request.POST.get('img')
+                    discription1= request.POST.get('discription')
+                    item1.name=name1
+                    item1.price=price1
+                    item1.img=img1
+                    item1.discription=discription1
+                    item1.save()
+                    messages.success(request,f"id {id} updated")
+                    return redirect('update')
 
-
-     
-            
-            
-
-           
+                except:
+                     messages.error(request,f"no such {id}")
+                     return redirect('update')
     return render(request,'update.html',context) 
+
+def add(request):
+    context={}
+    context['name']=request.session.get('name')
+    return render(request,'add.hmtl',context)
 
