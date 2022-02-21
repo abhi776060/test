@@ -1,0 +1,22 @@
+
+{% if name %}
+
+<div class="figure-caption">
+<div style="width: 20%; float: left;" >
+    <div class="card-body">
+        <img src="{{product.img}}" alt="Bootstrap" width="100em" height="100em" >
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text"><span>{{product.price}} Rs</span></p>
+        <p class="card-text"><span>{{product.discription}} Rs</span></p>
+      </div>
+    </div>
+</div>
+
+</div>
+<a href="home">Go back</a>
+
+{% else %}
+please
+<a href="signin">signin</a>
+{% endif %}

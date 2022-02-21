@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}add{% endblock %}
+{% block content %}
+{% if id %}
+<center>
+<form action="" method="post">
+    {% csrf_token %}
+    <br>
+    <input type="text" name="id" value="item_id" /><br>
+    <input type="text" name="name" value="name"/><br>
+    <input type="text" name="price" value="price"/><br>
+    <input type="text" name="img" value="img"/><br>
+    <textarea type="text" style="height: 450px;; width: 55%;" name="discription" value="discription" ></textarea><br>
+    <input type="submit" name="find" value="update"><br>
+    
+</form>
+</center>
+
+{% else %}
+<center>
+<form action="" method="post">
+    {% csrf_token %}
+    <br>
+    <label> <h1>enter item id</label></h1>
+    <input type="text" name="id",value="id" ><br>
+    <input type="submit" name='find',value="find"/><br>
+    
+    
+</form>
+{% if messages %}
+    {% for x in messages %}
+    {{x}}
+    {% endfor %}
+{% endif %}
+</center>
+<a href="add"><h1>want to add</h1></a>
+
+{% endif %}
+
+{% endblock %}
