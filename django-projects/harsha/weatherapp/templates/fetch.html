@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>weather</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="background: #000; font-size: larger; color: aliceblue;">
+        <center>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Enter city name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name='city' aria-describedby="emailHelp"><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </center>
+        <br><br><br><br><br><br><br>
+        {% if name %}
+        <center>
+        name       :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{name}}<br>
+        code       :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{code}}<br>
+        main       :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{main}}<br>
+        description:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{description}}<br>
+        feels_like :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{feels_like}}°C<br>
+        temp_min   :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{temp_min}}°C<br>
+        temp_max   :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{temp_max}}°C<br>
+        pressure   :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{pressure}}p<br>
+        humidity   :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{humidity}}%<br>
+        speed      :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{speed}}m/s<br>
+        deg        :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{deg}}°<br>
+        country    :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{country}}<br>
+       {% endif %}
+    </center>   
+    <center>
+       {% if error %}
+        {{error}}
+       {% endif %}
+    </center>
+        
+        
+        <script src="" async defer></script>
+    </body>
+</html>

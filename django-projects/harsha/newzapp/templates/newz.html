@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>news</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="color: rgb(240, 235, 235) ; background-color: black;font-size: large;">
+        <center>
+            <form method="post" action="#">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Enter topics</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name='city' aria-describedby="emailHelp"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </center>
+            {% if data %}
+        {% for key in data %}
+        <center>
+           <a href="{{key}}"> {{key}}</a><br><br>
+        </center>
+
+        {% endfor %}
+        {% else %}
+        No data
+        {% endif %}
+    </center>
+        
+        
+        <script src="" async defer></script>
+    </body>
+</html>
