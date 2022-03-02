@@ -7,7 +7,6 @@ import requests
 def featch(request):
     context={}
     try:
-        
         if request.method=='POST':
             city_name=request.POST['city']
             api_key='214144f32e1be8724f4c6a16a4d9c70c'

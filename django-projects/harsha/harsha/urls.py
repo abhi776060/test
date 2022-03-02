@@ -20,4 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('weather', include('weatherapp.urls')),
     path('newz', include('newzapp.urls')),
+    path('spotify', include('spotify.urls')),
+    path('cal', include('calapp.urls')),
+    path('pooling', include('pooling.urls')),
 ]

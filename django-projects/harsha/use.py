@@ -1,9 +1,13 @@
-from bs4 import BeautifulSoup as soup
-import requests
-from datetime import date
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
 
-today=date.today()
-d=today.strftime('%m-%d-%y')
+birdy_uri = 'spotify:artist:2WX2uTcsvV5OnS0inACecP'
+spotify1 = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials('8b48e217f6df4f0fabe0800f097ae985','288402091b2e45adac1888f58247400f'))
 
-cnn_url='https://timesofindia.indiatimes.com/briefs'
-print(d)
+album=[]
+results = spotify1.search(q='vijay prakash', limit=50)
+# print(results)
+for idx, track in enumerate(results['tracks']['items']):
+    # print(track)
+    album.append((track['name'],track['external_urls']['spotify']))
+print(album)

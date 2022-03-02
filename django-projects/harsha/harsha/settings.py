@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'weatherapp',
     'newzapp',
+    'spotify',
+    'calapp',
+    'pooling',
 ]
 
 MIDDLEWARE = [

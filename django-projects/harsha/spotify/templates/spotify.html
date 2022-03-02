@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="background: #000; font-size: larger; color: aliceblue;">
+        <center>
+            <form method="post" action="#">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Enter city name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name='song' aria-describedby="emailHelp"><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </center>
+        {%if data%}
+        {%for x in data%}
+        {{x.name}}&nbsp <a href='{{x.url}}' target="_blank">play</a><br>
+        {%endfor%}   
+        
+        {%endif%}     
+        <script src="" async defer></script>
+    </body>
+</html>
