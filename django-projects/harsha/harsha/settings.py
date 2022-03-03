@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'spotify',
     'calapp',
     'pooling',
+    'botapp',
 ]
 
 MIDDLEWARE = [

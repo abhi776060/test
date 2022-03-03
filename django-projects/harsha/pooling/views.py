@@ -54,7 +54,7 @@ def vote(request):
         result=request.POST.get("result",None)
         if result:
             
-            context['result']=(f'{ele.option1}',ele.v1,f'{ele.option2}',ele.v2,f'{ele.option3}',ele.v3,f'{ele.option4}',ele.v4,f'{max(ele.v1,ele.v2,ele.v3,ele.v4)}')
+            context['result']=(f'{ele.option1}',ele.v1,f'{ele.option2}',ele.v2,f'{ele.option3}',ele.v3,f'{ele.option4}',ele.v4)
         
 
         

@@ -3,7 +3,7 @@ from spotify import views
 
 urlpatterns = [
     
-    path('/',views.play,name='play'),
+    path('',views.play,name='play'),
 
     # path('/<str1>',views.discription,name='discription'),   
 

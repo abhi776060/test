@@ -48,49 +48,67 @@
 	</style>
 </head>
 <!-- create table -->
-<body >
+<body  >
     <form method="post" action="#">
         {% csrf_token %}
         
 
         
     <center >
-	<div class = title >Advance Calculator</div>
+	
+	<h1>Advance Calculator</h1>
 	<table border="1"  >
 		<tr>
-			<td colspan="3"><input style="height: 10em;width: 30em;" type="text" id="result" value="{{up}}"/></td>
+			<h1><td colspan="3"><input style="height: 1em;width: 3em;padding: 0%;border: 0ch;margin: 0%;font-size:100px; "  type="text" id="result" value="{{up}}"/></td></h1>
 			<!-- clr() function will call clr to clear all value -->
-			<td><input style="height: 10em;width: 10em;" type="submit" value="c" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="c" name="data"/> </td>
 		</tr>
 		<tr>
 			<!-- create button and assign value to each button -->
 			<!-- dis("1") will call function dis to display value -->
-			<td><input style="height: 10em;width: 10em;" type="submit" value="1" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="2" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="3" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="/" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+			" type="submit" value="1" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="2" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="3" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="/" name="data"/> </td>
 		</tr>
 		<tr>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="4" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="5" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="6" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="-" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="4" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="5" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="6" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="-" name="data"/> </td>
 		</tr>
 		<tr>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="7" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="8" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="9" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="+" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="7" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="8" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="9" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="+" name="data"/> </td>
 		</tr>
 		<tr>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="." name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="0" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="." name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="0" name="data"/> </td>
 			<!-- solve function call function solve to evaluate value -->
-			<td><input style="height: 10em;width: 10em;" type="submit" value="=" name="data"/> </td>
-			<td><input style="height: 10em;width: 10em;" type="submit" value="*" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="=" name="data"/> </td>
+			<td><input style="height: 1em;width: 1em;padding: 0%;border: 0ch;margin: 0%;font-size:100px;
+				" type="submit" value="*" name="data"/> </td>
 		</tr>
 	</table>
-    <button type="submit" class="btn btn-primary">Calculate</button>
+    
     </form>
 </center>
 </body>

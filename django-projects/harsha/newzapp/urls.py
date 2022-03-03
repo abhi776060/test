@@ -4,9 +4,9 @@ from newzapp import views
 
 urlpatterns = [
     
-    path('/',views.newz,name='newz'),
+    path('news',views.newz,name='newz'),
 
-    path('/<str1>',views.discription,name='discription'),   
+    path('news/<str1>',views.discription,name='discription'),   
 
    
 ]
